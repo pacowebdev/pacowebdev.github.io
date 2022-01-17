@@ -12,7 +12,7 @@ const basicArray = [
     { pic: 7, min: 1 },
     { pic: 8, min: 1 },
     { pic: 9, min: 1 }
-]
+];
 let exerciceArray = [];
 
 // get local storage exercices array
@@ -28,9 +28,41 @@ class Exercice {
     constructor() {
         this.index = 0;
         this.minutes = exerciceArray[this.index].min;
+        this.secondes = 0;
     }
     updateCountdown() {
+        this.secondes = this.secondes < 10 ? '0' + this.secondes : this.secondes;
 
+        setTimeout(() => {
+            if (this.minutes === 0 && this.secondes ===  "00") {
+                this.index++;
+                if (this.index < exerciceArray.length) {
+                    this.minutes = exerciceArray[this.index].min;
+                    this.secondes = 0;
+                    this.updateCountdown();
+                } else {
+                    return page.finish();
+                }
+            } else if (this.secondes ===  '00') {
+                this.minutes--;
+                this.secondes = 59;
+                this.updateCountdown();
+            } else {
+                this.secondes--;
+                this.updateCountdown();
+            }
+        }, 100);
+
+        return (
+            mainEl.innerHTML =
+            `
+                <div class="exercice-container">
+                    <p>${this.minutes}: ${this.secondes}</p>
+                    <img src="./img/${exerciceArray[this.index].pic}.png" alt="Photo exercice ${this.index + 1}">
+                    <div>${this.index + 1} / ${exerciceArray.length}</div>
+                </div>
+            `
+        )
     };
 }
 
@@ -95,7 +127,6 @@ const utils = {
 
     store: function() {
         localStorage.exercices = JSON.stringify(exerciceArray);
-        console.log(exerciceArray)
     }
 };
 const page = {
@@ -131,15 +162,13 @@ const page = {
         utils.handleEventMinute();
         utils.handleEventArrow();
         utils.deleteItem();
-
-
     },
 
     routine: function() {
         const exercice = new Exercice();
         utils.pageContent(
             "Routine",
-            exercice.updateCountdown,
+            exercice.updateCountdown(),
             null
         );
     },
