@@ -1,3 +1,7 @@
 h1  {
     color: brown;
 }
+canvas {
+    border: 1px solid brown;
+    cursor: crosshair;
+}
