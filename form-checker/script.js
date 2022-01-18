@@ -48,7 +48,7 @@ const passwordChecker = (value) => {
             /^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$/
         )
     ) {
-        errorDisplay('password', 'Minimum 8 caractères + Majuscule + caractère spécial', false)
+        errorDisplay('password', 'Minimum 8 caractères + majuscule + chiffre + caractère spécial ', false)
         progressBar.classList.add('progressRed')
         password = null
     } else if(value.length < 12) {

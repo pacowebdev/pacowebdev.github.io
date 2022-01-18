@@ -1,7 +1,16 @@
+* {
+    padding: 0;
+    margin: 0;
+}
 h1  {
     color: brown;
 }
 canvas {
-    border: 1px solid brown;
+    background: silver;
     cursor: crosshair;
+    margin: 10px;
+}
+.reset {
+    margin-left: 10px;
+    padding: 5px;
 }
