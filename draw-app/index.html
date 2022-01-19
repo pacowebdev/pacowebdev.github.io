@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Draw app</title>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./app.js" defer></script>
+</head>
+<body>
+    <canvas width="600" height="400"></canvas>
+    <section class="btn-container">
+        <label>
+            <input type="range" name="range-line" id="range-line" min="1" max="10" value="1">
+            <span id="px">1 px</span>
+        </label>
+        <div class="colors-container">
+            <input type="button" class="color1" value="white">
+            <input type="button" class="color2" value="red">
+            <input type="button" class="color3" value="green">
+            <input type="button" class="color4" value="blue">
+        </div>
+    </section>
+    <input type="button" value="Reset" id="reset">
+</body>
+</html>

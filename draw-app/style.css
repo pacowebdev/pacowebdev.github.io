@@ -1,0 +1,56 @@
+:root {
+    --background: silver;
+    --color-1: white;
+    --color-2: red;
+    --color-3: green;
+    --color-4: blue;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    padding: 1rem;
+}
+canvas {
+    background: var(--background);
+    border: 1px solid black;
+    border-radius: 1rem;
+    cursor: crosshair;
+}
+#reset {
+    padding: .5rem;
+    border-radius: .5rem;
+}
+.btn-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.colors-container {
+    display: flex;
+}
+.colors-container > input {
+    margin: 1rem;
+    padding: 0 1rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 2rem;
+}
+.color1 {
+    background: var(--color-1);
+    color: var(--color-1)
+}
+.color2 {
+     background: var(--color-2);
+    color: var(--color-2)
+}
+.color3 {
+    background: var(--color-3);
+    color: var(--color-3)
+
+}
+.color4 {
+    background: var(--color-4);
+    color: var(--color-4)
+}
